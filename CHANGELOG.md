@@ -59,5 +59,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI/CD workflows
 - Vercel deployment
 
-[Unreleased]: https://github.com/wallstreetsilver/wss-dev-site/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/wallstreetsilver/wss-dev-site/releases/tag/v0.1.0
+[Unreleased]: https://github.com/SilverIntelligence/main-website/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/SilverIntelligence/main-website/releases/tag/v0.1.0

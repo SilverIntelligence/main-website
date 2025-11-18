@@ -121,7 +121,7 @@ export default function AboutPage() {
           </ul>
           <p>
             Follow our <Link href="/roadmap">public roadmap</Link> to see what we're working on and{' '}
-            <a href="https://github.com/wallstreetsilver" target="_blank" rel="noopener noreferrer">contribute on GitHub</a>.
+            <a href="https://github.com/SilverIntelligence" target="_blank" rel="noopener noreferrer">contribute on GitHub</a>.
           </p>
         </div>
 
@@ -139,7 +139,7 @@ export default function AboutPage() {
               Read the Docs
             </Link>
             <a
-              href="https://github.com/wallstreetsilver"
+              href="https://github.com/SilverIntelligence"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"

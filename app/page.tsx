@@ -46,7 +46,7 @@ export default async function HomePage() {
             Get in touch
           </Link>
           <a
-            href="https://github.com/wallstreetsilver"
+            href="https://github.com/SilverIntelligence"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 transition-colors hover:bg-gray-50"

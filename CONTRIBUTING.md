@@ -168,7 +168,7 @@ npm run start
 
 ## Getting Help
 
-- Join our [GitHub Discussions](https://github.com/wallstreetsilver/wss-dev-site/discussions)
+- Join our [GitHub Discussions](https://github.com/SilverIntelligence/discussions)
 - Read the [documentation](https://developers.wallstreetsilver.com/docs)
 - Contact us via the [contact form](https://developers.wallstreetsilver.com/contact)
 

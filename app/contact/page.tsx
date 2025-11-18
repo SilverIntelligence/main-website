@@ -38,7 +38,7 @@ export default function ContactPage() {
                 Technical questions, API issues, or integration help.
               </p>
               <a
-                href="https://github.com/wallstreetsilver"
+                href="https://github.com/SilverIntelligence"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 block text-gray-900 hover:underline"

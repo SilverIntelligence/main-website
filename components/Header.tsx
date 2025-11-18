@@ -59,7 +59,7 @@ export default function Header() {
                 Contact
               </Link>
               <a
-                href="https://github.com/wallstreetsilver"
+                href="https://github.com/SilverIntelligence"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"

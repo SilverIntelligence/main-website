@@ -2,7 +2,7 @@
 
 > Open precious metals analytics and research platform for developers and analysts.
 
-[![CI](https://github.com/wallstreetsilver/wss-dev-site/actions/workflows/ci.yml/badge.svg)](https://github.com/wallstreetsilver/wss-dev-site/actions/workflows/ci.yml)
+[![CI](https://github.com/SilverIntelligence/main-website/actions/workflows/ci.yml/badge.svg)](https://github.com/SilverIntelligence/main-website/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Overview
@@ -45,8 +45,8 @@ Wall Street Silver Developer Hub is a production-grade developer site built with
 
 ```bash
 # Clone the repository
-git clone https://github.com/wallstreetsilver/wss-dev-site.git
-cd wss-dev-site
+git clone https://github.com/SilverIntelligence/main-website.git
+cd main-website
 
 # Install dependencies
 npm install
@@ -292,7 +292,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## Support
 
 - **Documentation:** [developers.wallstreetsilver.com/docs](https://developers.wallstreetsilver.com/docs)
-- **GitHub Discussions:** [github.com/wallstreetsilver/wss-dev-site/discussions](https://github.com/wallstreetsilver/wss-dev-site/discussions)
+- **GitHub Discussions:** [github.com/SilverIntelligence/discussions](https://github.com/SilverIntelligence/discussions)
 - **Contact:** [developers.wallstreetsilver.com/contact](https://developers.wallstreetsilver.com/contact)
 
 ## Roadmap
