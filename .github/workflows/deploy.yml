@@ -1,0 +1,40 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://developers.wallstreetsilver.com
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run checks
+        run: |
+          npm run typecheck
+          npm run lint
+          npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://developers.wallstreetsilver.com
+
+      - name: Deploy to Vercel
+        run: |
+          echo "Deployment handled by Vercel GitHub integration"
+          echo "See: https://vercel.com/docs/concepts/git"
