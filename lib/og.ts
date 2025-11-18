@@ -12,7 +12,7 @@ export interface OGImageParams {
  * Generate OG image URL for dynamic image generation
  * In production, integrate with @vercel/og or similar
  */
-export function getOGImageUrl(params: OGImageParams): string {
+export function getOGImageUrl(_params: OGImageParams): string {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://developers.wallstreetsilver.com';
 
   // For v1, use static default image

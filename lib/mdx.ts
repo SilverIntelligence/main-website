@@ -124,14 +124,14 @@ export const mdxOptions = {
             className: ['anchor'],
           },
         },
-      ],
+      ] as any,
       [
         rehypePrettyCode,
         {
           theme: 'github-dark',
           keepBackground: true,
         },
-      ],
+      ] as any,
     ],
   },
 };
@@ -142,7 +142,7 @@ export const mdxOptions = {
 export function renderMDX(content: string, components?: MDXRemoteProps['components']) {
   return MDXRemote({
     source: content,
-    options: mdxOptions.mdxOptions,
+    options: mdxOptions as any,
     components,
   });
 }
