@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { generateMetadata as genMeta } from '@/lib/og';
 
 export const metadata = genMeta({
@@ -91,8 +92,8 @@ export default function AboutPage() {
             <li>Media organizations covering precious metals markets</li>
           </ul>
           <p>
-            Interested in working together? <a href="/contact">Get in touch</a> or check out our
-            <a href="/careers">open positions</a>.
+            Interested in working together? <Link href="/contact">Get in touch</Link> or check out our{' '}
+            <Link href="/careers">open positions</Link>.
           </p>
 
           <h2>Funding & Independence</h2>
@@ -119,8 +120,8 @@ export default function AboutPage() {
             <li>Educational resources for new analysts</li>
           </ul>
           <p>
-            Follow our <a href="/roadmap">public roadmap</a> to see what we're working on and
-            <a href="https://github.com/wallstreetsilver">contribute on GitHub</a>.
+            Follow our <Link href="/roadmap">public roadmap</Link> to see what we're working on and{' '}
+            <a href="https://github.com/wallstreetsilver" target="_blank" rel="noopener noreferrer">contribute on GitHub</a>.
           </p>
         </div>
 
@@ -131,12 +132,12 @@ export default function AboutPage() {
             ways to get involved with Wall Street Silver.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <a
+            <Link
               href="/docs"
               className="inline-flex items-center rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
             >
               Read the Docs
-            </a>
+            </Link>
             <a
               href="https://github.com/wallstreetsilver"
               target="_blank"

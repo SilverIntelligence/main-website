@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { generateMetadata as genMeta } from '@/lib/og';
 
 export const metadata = genMeta({
@@ -138,9 +139,9 @@ export default function PressPage() {
                   The platform makes institutional-grade market data accessible to independent
                   researchers and developers worldwide.
                 </p>
-                <a href="/blog/2025-11-17-hello-world" className="mt-3 inline-block text-sm font-medium text-gray-900 hover:underline">
+                <Link href="/blog/2025-11-17-hello-world" className="mt-3 inline-block text-sm font-medium text-gray-900 hover:underline">
                   Read full announcement →
-                </a>
+                </Link>
               </article>
             </div>
           </section>
@@ -161,9 +162,9 @@ export default function PressPage() {
                 </p>
                 <p className="text-sm">
                   <strong>General Contact:</strong>{' '}
-                  <a href="/contact" className="text-gray-900 hover:underline">
+                  <Link href="/contact" className="text-gray-900 hover:underline">
                     Contact Form
-                  </a>
+                  </Link>
                 </p>
                 <p className="text-sm">
                   <strong>Response Time:</strong> Within 24-48 hours for media inquiries
@@ -212,7 +213,11 @@ export default function PressPage() {
               <li>Open-source development in fintech</li>
             </ul>
             <p className="mt-4 text-sm text-gray-600">
-              Contact <a href="mailto:press@wallstreetsilver.com" className="text-gray-900 hover:underline">press@wallstreetsilver.com</a> to schedule interviews or request quotes.
+              Contact{' '}
+              <a href="mailto:press@wallstreetsilver.com" className="text-gray-900 hover:underline">
+                press@wallstreetsilver.com
+              </a>{' '}
+              to schedule interviews or request quotes.
             </p>
           </section>
 
@@ -229,12 +234,12 @@ export default function PressPage() {
               <li>High-resolution images or graphics</li>
               <li>Background information for investigative pieces</li>
             </ul>
-            <a
+            <Link
               href="/contact"
               className="mt-6 inline-block rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
             >
               Contact Media Relations
-            </a>
+            </Link>
           </section>
         </div>
       </div>
