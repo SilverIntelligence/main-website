@@ -15,7 +15,7 @@ export default function ContactForm() {
 
     if (result.success) {
       setStatus('success');
-      setMessage('Thank you for your message! We'll get back to you soon.');
+      setMessage('Thank you for your message! We will get back to you soon.');
       // Reset form
       (document.getElementById('contact-form') as HTMLFormElement)?.reset();
     } else {

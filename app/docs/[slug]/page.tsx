@@ -3,8 +3,9 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllSlugs, getMdxBySlug, mdxOptions } from '@/lib/mdx';
 import { generateMetadata as genMeta } from '@/lib/og';
 import Prose from '@/components/Prose';
-import CodeBlock from '@/components/CodeBlock';
 import Callout from '@/components/Callout';
+
+export const dynamic = 'force-dynamic';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -39,7 +40,6 @@ export default async function DocPage({ params }: Props) {
   }
 
   const components = {
-    pre: CodeBlock,
     Callout,
   };
 
@@ -54,7 +54,7 @@ export default async function DocPage({ params }: Props) {
         </header>
 
         <Prose>
-          <MDXRemote source={doc.content} options={mdxOptions.mdxOptions} components={components} />
+          <MDXRemote source={doc.content} options={mdxOptions as any} components={components} />
         </Prose>
       </article>
     </div>
