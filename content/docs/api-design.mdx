@@ -1,0 +1,238 @@
+---
+title: API Design Draft
+description: Proposed design for Wall Street Silver REST and GraphQL APIs
+date: 2025-11-17
+author: Wall Street Silver Team
+---
+
+# API Design Draft
+
+This document outlines our planned API design. The API is currently in development and this design is subject to change based on community feedback.
+
+<Callout type="info">
+**Status:** This is a draft specification. APIs are not yet available. Expected alpha release: Q1 2025.
+</Callout>
+
+## Design Principles
+
+Our API design follows these core principles:
+
+1. **RESTful** - Predictable, resource-oriented URLs
+2. **Developer-Friendly** - Clear documentation and helpful error messages
+3. **Fast** - Optimized for low latency and high throughput
+4. **Secure** - API key authentication with rate limiting
+5. **Versioned** - Stable contracts with clear deprecation policies
+
+## Authentication
+
+API keys are required for all requests:
+
+```bash
+curl https://api.wallstreetsilver.com/v1/metals/silver/spot \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Rate Limits
+
+Default rate limits (subject to change):
+
+- **Free Tier:** 100 requests/minute, 10,000 requests/day
+- **Developer Tier:** 1,000 requests/minute, 1M requests/month
+- **Enterprise:** Custom limits
+
+Rate limit headers in every response:
+
+```
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 95
+X-RateLimit-Reset: 1634567890
+```
+
+## Core Endpoints (Planned)
+
+### Get Spot Price
+
+Retrieve the current spot price for a metal:
+
+```http
+GET /v1/metals/{metal}/spot
+```
+
+**Parameters:**
+- `metal` (required): `gold`, `silver`, `platinum`, `palladium`
+- `currency` (optional): `USD`, `EUR`, `GBP`, etc. (default: `USD`)
+
+**Response:**
+
+```json
+{
+  "metal": "silver",
+  "price": 24.85,
+  "currency": "USD",
+  "unit": "oz",
+  "timestamp": "2025-11-17T14:00:00Z",
+  "source": "LBMA",
+  "change_24h": {
+    "absolute": 0.42,
+    "percent": 1.72
+  }
+}
+```
+
+### Get Historical Data
+
+Fetch historical price data:
+
+```http
+GET /v1/metals/{metal}/history
+```
+
+**Parameters:**
+- `metal` (required)
+- `from` (required): ISO 8601 date
+- `to` (required): ISO 8601 date
+- `interval` (optional): `1m`, `5m`, `1h`, `1d`, `1w` (default: `1d`)
+
+**Response:**
+
+```json
+{
+  "metal": "silver",
+  "interval": "1d",
+  "data": [
+    {
+      "timestamp": "2025-11-17T00:00:00Z",
+      "open": 24.50,
+      "high": 25.10,
+      "low": 24.35,
+      "close": 24.85,
+      "volume": 123456
+    }
+  ],
+  "pagination": {
+    "total": 365,
+    "page": 1,
+    "per_page": 100
+  }
+}
+```
+
+### Market Statistics
+
+Get aggregated market statistics:
+
+```http
+GET /v1/metals/{metal}/stats
+```
+
+**Response:**
+
+```json
+{
+  "metal": "silver",
+  "period": "1y",
+  "statistics": {
+    "current_price": 24.85,
+    "avg_price": 23.50,
+    "high": 26.20,
+    "low": 21.80,
+    "volatility": 15.3,
+    "total_volume": 45000000
+  }
+}
+```
+
+## GraphQL API (Future)
+
+For more flexible querying, we plan to offer a GraphQL endpoint:
+
+```graphql
+query GetSilverData {
+  metal(symbol: "silver") {
+    spot {
+      price
+      currency
+      timestamp
+    }
+    history(from: "2025-01-01", to: "2025-12-31") {
+      timestamp
+      close
+    }
+    stats {
+      high
+      low
+      avgPrice
+    }
+  }
+}
+```
+
+## Error Handling
+
+Consistent error responses across all endpoints:
+
+```json
+{
+  "error": {
+    "code": "rate_limit_exceeded",
+    "message": "Rate limit exceeded. Retry after 60 seconds.",
+    "details": {
+      "limit": 100,
+      "reset_at": "2025-11-17T14:05:00Z"
+    }
+  }
+}
+```
+
+### Common Error Codes
+
+- `400` - Bad Request (invalid parameters)
+- `401` - Unauthorized (missing or invalid API key)
+- `403` - Forbidden (insufficient permissions)
+- `429` - Too Many Requests (rate limit exceeded)
+- `500` - Internal Server Error
+- `503` - Service Unavailable
+
+## SDK Support
+
+Official SDKs planned for:
+
+- **TypeScript/JavaScript** (Node.js and browser)
+- **Python**
+- **Go**
+- **Rust**
+
+Example with TypeScript SDK:
+
+```typescript
+import { WSSClient } from '@wallstreetsilver/sdk';
+
+const client = new WSSClient({
+  apiKey: process.env.WSS_API_KEY,
+});
+
+const price = await client.metals.getSpotPrice('silver');
+const history = await client.metals.getHistory('silver', {
+  from: '2025-01-01',
+  to: '2025-12-31',
+});
+```
+
+## Webhooks (Future)
+
+Subscribe to real-time events:
+
+- Price alerts (threshold crossed)
+- Market news
+- Data updates
+
+## Feedback
+
+This API design is a work in progress. We welcome your feedback:
+
+- [GitHub Discussions](https://github.com/wallstreetsilver) - Share your thoughts
+- [Contact Us](/contact) - Private feedback
+
+---
+
+*API documentation will be continuously updated as we build. Star our GitHub repo for updates.*

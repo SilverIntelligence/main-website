@@ -1,0 +1,147 @@
+---
+title: Data Sources
+description: Understanding where our precious metals data comes from and how we ensure quality
+date: 2025-11-17
+author: Wall Street Silver Team
+---
+
+# Data Sources
+
+Transparency is at the core of Wall Street Silver. This document outlines our data sources, collection methodology, and quality assurance processes.
+
+## Primary Sources
+
+### 1. London Bullion Market Association (LBMA)
+
+The LBMA provides authoritative pricing data for gold and silver through twice-daily fixings.
+
+- **Data Type:** Spot prices, fixing prices
+- **Update Frequency:** Daily (AM/PM fixes)
+- **Historical Coverage:** 1968-present
+- **Attribution:** All LBMA data is clearly marked and timestamped
+
+### 2. Commodities Exchanges
+
+We aggregate data from major global exchanges:
+
+- **COMEX** (CME Group) - Futures and options data
+- **Shanghai Gold Exchange** - Asian market pricing
+- **Other regional exchanges** - For comprehensive coverage
+
+### 3. Government Statistics
+
+Official production and consumption data from:
+
+- U.S. Geological Survey (USGS)
+- World Silver Survey
+- National mining agencies
+
+### 4. Industry Reports
+
+Curated data from reputable industry sources:
+
+- Silver Institute annual surveys
+- CPM Group research
+- Metals Focus reports
+
+## Data Collection Methodology
+
+### Automated Ingestion
+
+Our data pipeline automatically collects and processes data from public APIs and feeds:
+
+```typescript
+// Example data ingestion flow (simplified)
+const pipeline = {
+  sources: ['lbma', 'comex', 'usgs'],
+  frequency: 'realtime', // or 'daily', 'hourly'
+  validation: true,
+  deduplication: true,
+};
+```
+
+### Quality Assurance
+
+Every data point goes through multiple validation steps:
+
+1. **Schema Validation** - Ensure data matches expected format
+2. **Range Checks** - Flag outliers and anomalies
+3. **Cross-Source Verification** - Compare across multiple sources
+4. **Manual Review** - Human oversight for critical data
+
+<Callout type="warning">
+**Data Lag:** Real-time data may have a 1-5 minute delay depending on the source. Historical data is updated daily.
+</Callout>
+
+## Data Attribution
+
+All data in our platform includes:
+
+- **Source Name** - Where the data originated
+- **Timestamp** - When it was collected
+- **Version** - Data revision history
+- **License** - Usage rights and restrictions
+
+Example metadata:
+
+```json
+{
+  "value": 24.85,
+  "unit": "USD/oz",
+  "metal": "silver",
+  "timestamp": "2025-11-17T14:00:00Z",
+  "source": {
+    "name": "LBMA",
+    "type": "official_fixing",
+    "license": "public_data"
+  },
+  "version": "1.0"
+}
+```
+
+## Data Limitations
+
+We believe in transparency about what our data can and cannot tell you:
+
+- **Market Coverage:** We focus on major markets; some regional exchanges may not be included
+- **Historical Gaps:** Some historical data has known gaps or quality issues
+- **Estimates:** Certain data points (e.g., recycling rates) are estimates based on industry models
+
+## Using Our Data
+
+### Terms of Use
+
+Data accessed through our platform is subject to:
+
+1. Original source licenses
+2. Our platform's [Terms of Service](/legal/terms)
+3. Proper attribution requirements
+
+### Best Practices
+
+When using our data:
+
+- **Always cite sources** - Include both Wall Street Silver and the original source
+- **Check timestamps** - Ensure data freshness matches your needs
+- **Understand context** - Read methodology notes for each dataset
+- **Report issues** - Help us improve by reporting data quality concerns
+
+## Future Enhancements
+
+We're continuously improving our data coverage:
+
+- **Real-time streaming** - WebSocket feeds for live pricing (Q2 2025)
+- **Alternative data** - Sentiment analysis, supply chain signals (Q3 2025)
+- **Machine learning** - Anomaly detection and forecasting (Q4 2025)
+
+## Questions?
+
+Have questions about our data sources or methodology?
+
+- Check our [FAQ](/docs/faq) (coming soon)
+- Ask in [GitHub Discussions](https://github.com/wallstreetsilver)
+- Contact us via [/contact](/contact)
+
+---
+
+*For the complete list of data sources and their update schedules, see our [Data Catalog](/docs/data-catalog) (coming soon).*

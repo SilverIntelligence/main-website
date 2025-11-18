@@ -1,0 +1,117 @@
+---
+title: Getting Started
+description: Learn how to get started with Wall Street Silver developer platform
+date: 2025-11-17
+author: Wall Street Silver Team
+---
+
+# Getting Started
+
+Welcome to the Wall Street Silver developer platform! This guide will help you get started with accessing our data, APIs, and research tools.
+
+## Overview
+
+Wall Street Silver provides open-source analytics and market data for precious metals, with a focus on transparency and accessibility. Our platform includes:
+
+- **Market Data APIs** (coming soon) - Real-time and historical price data
+- **Research Database** - Curated market research and analysis
+- **Developer Tools** - SDKs, libraries, and integration examples
+- **Community Resources** - Forums, discussions, and collaborative tools
+
+## Quick Start
+
+### Prerequisites
+
+Before you begin, make sure you have:
+
+- Basic knowledge of REST APIs or GraphQL
+- A development environment set up (Node.js, Python, or your preferred language)
+- An understanding of precious metals markets (helpful but not required)
+
+### API Access (Coming Soon)
+
+Our APIs are currently in development. To get early access:
+
+1. Sign up for our developer newsletter via the [contact form](/contact)
+2. Watch our [GitHub repositories](https://github.com/wallstreetsilver) for updates
+3. Join the discussion in GitHub Discussions
+
+<Callout type="info">
+**Alpha Release:** We're planning to release our first API alpha in Q1 2025. Sign up to be notified when it's ready.
+</Callout>
+
+## What You Can Do Today
+
+While our APIs are in development, you can:
+
+### 1. Explore Research
+
+Browse our [research section](/research) for in-depth market analysis and data-driven insights.
+
+### 2. Read the Docs
+
+Familiarize yourself with our planned API design and data models (coming soon).
+
+### 3. Follow Our Roadmap
+
+Check out our [public roadmap](/roadmap) to see what we're building and when.
+
+### 4. Contribute
+
+We're open source! Contribute to our tools and documentation on GitHub.
+
+## Example: Fetching Price Data (Future)
+
+Here's what it will look like to fetch silver price data once our API is live:
+
+```typescript
+import { WSSClient } from '@wallstreetsilver/sdk';
+
+const client = new WSSClient({
+  apiKey: process.env.WSS_API_KEY,
+});
+
+// Get current silver spot price
+const price = await client.metals.getSpotPrice('silver');
+console.log(`Current silver price: $${price.usd}/oz`);
+
+// Get historical data
+const history = await client.metals.getHistory('silver', {
+  from: '2024-01-01',
+  to: '2024-12-31',
+  interval: 'daily',
+});
+```
+
+## Data Sources
+
+Our platform aggregates data from multiple trusted sources, including:
+
+- London Bullion Market Association (LBMA)
+- Major precious metals exchanges
+- Government mining statistics
+- Industry research reports
+
+All data is timestamped, versioned, and includes source attribution.
+
+## Support
+
+Need help? We're here for you:
+
+- **Documentation:** Browse these docs for guides and references
+- **GitHub Discussions:** Ask questions and share ideas
+- **Contact Form:** Reach out for specific inquiries via [/contact](/contact)
+
+## Next Steps
+
+- [Data Sources](/docs/data-sources) - Learn about our data collection methodology
+- [API Design](/docs/api-design) - Explore our planned API structure
+- [Roadmap](/roadmap) - See what's coming next
+
+<Callout type="success">
+**Stay Updated:** Follow our [blog](/blog) for announcements, feature releases, and technical deep-dives.
+</Callout>
+
+---
+
+*Last updated: November 17, 2025*

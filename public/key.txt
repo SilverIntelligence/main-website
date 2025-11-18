@@ -1,0 +1,14 @@
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: Wall Street Silver Security Team PGP Key
+Comment: For encrypted communication regarding security vulnerabilities
+Comment: Replace with actual PGP key before production deployment
+
+[Placeholder - Generate and add actual PGP key]
+
+To generate a key:
+gpg --full-generate-key
+
+Then export with:
+gpg --armor --export security@wallstreetsilver.com > key.txt
+
+-----END PGP PUBLIC KEY BLOCK-----
