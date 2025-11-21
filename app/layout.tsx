@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SITE } from '@/lib/site';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -63,8 +64,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Wall Street Silver',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.wallstreetsilver.app/',
+    sameAs: [SITE.orgGithub, SITE.linkedinCompany],
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">{children}</main>

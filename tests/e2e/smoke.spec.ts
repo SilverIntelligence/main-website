@@ -104,3 +104,17 @@ test.describe('Accessibility', () => {
     await expect(footer).toBeVisible();
   });
 });
+
+test.describe('Social links', () => {
+  test('header has correct links', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByTestId('nav-github')).toHaveAttribute('href', 'https://github.com/SilverIntelligence/');
+    await expect(page.getByTestId('nav-linkedin')).toHaveAttribute('href', 'https://www.linkedin.com/company/wall-street-silver/');
+  });
+
+  test('footer has correct links', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByTestId('footer-github')).toHaveAttribute('href', 'https://github.com/SilverIntelligence/');
+    await expect(page.getByTestId('footer-linkedin')).toHaveAttribute('href', 'https://www.linkedin.com/company/wall-street-silver/');
+  });
+});

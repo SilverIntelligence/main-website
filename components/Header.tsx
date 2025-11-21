@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { SITE } from '@/lib/site';
 
 export default function Header() {
   return (
@@ -35,6 +36,12 @@ export default function Header() {
                 Research
               </Link>
               <Link
+                href="/about"
+                className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
+              >
+                About
+              </Link>
+              <Link
                 href="/roadmap"
                 className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
               >
@@ -53,13 +60,24 @@ export default function Header() {
                 Contact
               </Link>
               <a
-                href="https://github.com/wallstreetsilver"
+                href={SITE.orgGithub}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub (opens in a new tab)"
+                data-testid="nav-github"
                 className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
-                aria-label="GitHub"
               >
                 GitHub ↗
+              </a>
+              <a
+                href={SITE.linkedinCompany}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn (opens in a new tab)"
+                data-testid="nav-linkedin"
+                className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
+              >
+                LinkedIn
               </a>
             </div>
           </div>

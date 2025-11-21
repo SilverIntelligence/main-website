@@ -145,7 +145,7 @@ export default function RoadmapPage() {
           </p>
           <div className="mt-4 flex gap-4">
             <a
-              href="https://github.com/wallstreetsilver"
+              href="https://github.com/SilverIntelligence"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium text-gray-900 hover:underline"
