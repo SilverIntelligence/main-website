@@ -68,7 +68,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Wall Street Silver',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://developers.wallstreetsilver.com',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.wallstreetsilver.app/',
     sameAs: [SITE.orgGithub, SITE.linkedinCompany],
   };
 
