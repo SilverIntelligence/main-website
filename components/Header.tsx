@@ -64,7 +64,8 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
-                aria-label="GitHub"
+                aria-label="GitHub (opens in a new tab)"
+                data-testid="nav-github"
               >
                 GitHub ↗
               </a>
@@ -73,7 +74,8 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
-                aria-label="LinkedIn"
+                aria-label="LinkedIn (opens in a new tab)"
+                data-testid="nav-linkedin"
               >
                 LinkedIn ↗
               </a>

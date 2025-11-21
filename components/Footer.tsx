@@ -95,6 +95,8 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-gray-600 hover:text-gray-900"
+                  aria-label="GitHub (opens in a new tab)"
+                  data-testid="footer-github"
                 >
                   GitHub
                 </a>
@@ -105,6 +107,8 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-gray-600 hover:text-gray-900"
+                  aria-label="LinkedIn (opens in a new tab)"
+                  data-testid="footer-linkedin"
                 >
                   LinkedIn
                 </a>

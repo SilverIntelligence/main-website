@@ -108,13 +108,13 @@ test.describe('Accessibility', () => {
 test.describe('Social Links', () => {
   test('header social links', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('header a:has-text("GitHub")')).toHaveAttribute('href', 'https://github.com/SilverIntelligence/');
-    await expect(page.locator('header a:has-text("LinkedIn")')).toHaveAttribute('href', 'https://www.linkedin.com/company/wall-street-silver/');
+    await expect(page.getByTestId('nav-github')).toHaveAttribute('href', 'https://github.com/SilverIntelligence/');
+    await expect(page.getByTestId('nav-linkedin')).toHaveAttribute('href', 'https://www.linkedin.com/company/wall-street-silver/');
   });
 
   test('footer social links', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('footer a:has-text("GitHub")')).toHaveAttribute('href', 'https://github.com/SilverIntelligence/');
-    await expect(page.locator('footer a:has-text("LinkedIn")')).toHaveAttribute('href', 'https://www.linkedin.com/company/wall-street-silver/');
+    await expect(page.getByTestId('footer-github')).toHaveAttribute('href', 'https://github.com/SilverIntelligence/');
+    await expect(page.getByTestId('footer-linkedin')).toHaveAttribute('href', 'https://www.linkedin.com/company/wall-street-silver/');
   });
 });
