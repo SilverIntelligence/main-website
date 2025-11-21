@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { generateMetadata as genMeta } from '@/lib/og';
+import { SITE } from '@/lib/site';
 
 export const metadata = genMeta({
   title: 'About',
@@ -121,7 +122,14 @@ export default function AboutPage() {
           </ul>
           <p>
             Follow our <Link href="/roadmap">public roadmap</Link> to see what we're working on and{' '}
-            <a href="https://github.com/SilverIntelligence" target="_blank" rel="noopener noreferrer">contribute on GitHub</a>.
+            <a href={SITE.orgGithub} target="_blank" rel="noopener noreferrer">contribute on GitHub</a>.
+          </p>
+          <p className="mt-4">
+            Follow us on{' '}
+            <a href={SITE.linkedinCompany} target="_blank" rel="noopener noreferrer" className="underline">
+              LinkedIn
+            </a>{' '}
+            for updates and company news.
           </p>
         </div>
 
@@ -139,12 +147,20 @@ export default function AboutPage() {
               Read the Docs
             </Link>
             <a
-              href="https://github.com/SilverIntelligence"
+              href={SITE.orgGithub}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
             >
               GitHub
+            </a>
+            <a
+              href={SITE.linkedinCompany}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            >
+              LinkedIn
             </a>
             <a
               href="/contact"

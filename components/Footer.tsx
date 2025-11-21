@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { SITE } from '@/lib/site';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -90,12 +91,22 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/SilverIntelligence"
+                  href={SITE.orgGithub}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-gray-600 hover:text-gray-900"
                 >
                   GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE.linkedinCompany}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-600 hover:text-gray-900"
+                >
+                  LinkedIn
                 </a>
               </li>
             </ul>

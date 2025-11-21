@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { generateMetadata as genMeta } from '@/lib/og';
+import { SITE } from '@/lib/site';
 
 export const metadata = genMeta({
   title: 'Press & Media',
@@ -168,6 +169,16 @@ export default function PressPage() {
                 </p>
                 <p className="text-sm">
                   <strong>Response Time:</strong> Within 24-48 hours for media inquiries
+                </p>
+                <p className="mt-4 text-sm">
+                  <strong>Company Pages:</strong>{' '}
+                  <a href={SITE.linkedinCompany} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:underline">
+                    LinkedIn
+                  </a>
+                  {' · '}
+                  <a href={SITE.orgGithub} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:underline">
+                    GitHub
+                  </a>
                 </p>
               </div>
             </div>
