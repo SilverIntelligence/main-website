@@ -63,9 +63,9 @@ export default function Header() {
                 href={SITE.orgGithub}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
                 aria-label="GitHub (opens in a new tab)"
                 data-testid="nav-github"
+                className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
               >
                 GitHub ↗
               </a>
@@ -73,11 +73,11 @@ export default function Header() {
                 href={SITE.linkedinCompany}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
                 aria-label="LinkedIn (opens in a new tab)"
                 data-testid="nav-linkedin"
+                className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
               >
-                LinkedIn ↗
+                LinkedIn
               </a>
             </div>
           </div>
