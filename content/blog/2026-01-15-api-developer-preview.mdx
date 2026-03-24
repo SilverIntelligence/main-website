@@ -1,0 +1,70 @@
+---
+title: "Introducing the Wall Street Silver API Developer Preview"
+description: "We're opening early access to our precious metals data API — here's what's included, how to get started, and what's coming next."
+date: "2026-01-15"
+author: "WSS Engineering"
+tags: ["api", "developer", "announcements"]
+---
+
+We're excited to announce the **Wall Street Silver API Developer Preview** — the first public access to the data infrastructure we've been building for over a year.
+
+<Callout type="info">
+Developer Preview accounts are available by request. Visit the [contact page](/contact) to apply for early access.
+</Callout>
+
+## What's in the Preview
+
+The preview gives you read-only access to the core endpoints that power our own analytics platform:
+
+- **Spot prices** — Real-time and historical spot prices for silver, gold, platinum, and palladium
+- **Market sentiment** — Aggregated sentiment scores derived from on-chain flows, futures positioning, and retail activity
+- **Mint premiums** — Physical premium data from major dealers, updated every 15 minutes
+
+All endpoints return JSON and are authenticated with a bearer token. Rate limits during the preview are set at **60 requests per minute** per API key.
+
+## Getting Started
+
+Once you have an API key, making your first request is straightforward:
+
+```bash
+curl https://api.wallstreetsilver.com/v1/prices/silver/spot \
+  -H "Authorization: Bearer <your-api-key>"
+```
+
+Response:
+
+```json
+{
+  "symbol": "XAG",
+  "price": 31.42,
+  "currency": "USD",
+  "unit": "troy_oz",
+  "timestamp": "2026-01-15T14:23:00Z",
+  "bid": 31.39,
+  "ask": 31.45
+}
+```
+
+Full endpoint documentation is available in the [API Design docs](/docs/api-design).
+
+## What We're Working On
+
+Over the next few months we're focused on:
+
+### Write Endpoints & Alerts
+
+Set price alerts and webhooks so your application can react to market events without polling.
+
+### SDKs
+
+We're building official SDKs for TypeScript/JavaScript and Python. Community-maintained libraries for Go and Rust are also in progress — see the [roadmap](/roadmap) for details.
+
+### Historical Depth
+
+The preview exposes 90 days of historical data. General availability will include full history going back to 2010.
+
+## Feedback Welcome
+
+This is a preview, which means things will change. If you hit a rough edge, run into documentation gaps, or have feature requests, please [open an issue](https://github.com/SilverIntelligence) or reach out via the [contact form](/contact).
+
+We're building this for developers who care about transparent, reliable financial data — your feedback shapes what gets built next.

@@ -4,6 +4,7 @@ import { getAllSlugs, getMdxBySlug, mdxOptions } from '@/lib/mdx';
 import { generateMetadata as genMeta } from '@/lib/og';
 import Prose from '@/components/Prose';
 import Callout from '@/components/Callout';
+import TOC from '@/components/TOC';
 
 export const dynamic = 'force-dynamic';
 
@@ -45,18 +46,29 @@ export default async function DocPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <article className="mx-auto max-w-3xl">
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900">{doc.metadata.title}</h1>
-          {doc.metadata.description && (
-            <p className="mt-4 text-lg text-gray-600">{doc.metadata.description}</p>
-          )}
-        </header>
+      <div className="flex gap-12">
+        <article className="min-w-0 flex-1">
+          <header className="mb-8">
+            <h1 className="text-4xl font-bold text-gray-900">{doc.metadata.title}</h1>
+            {doc.metadata.description && (
+              <p className="mt-4 text-lg text-gray-600">{doc.metadata.description}</p>
+            )}
+            <p className="mt-2 text-sm text-gray-400">{doc.metadata.readingTime} min read</p>
+          </header>
 
-        <Prose>
-          <MDXRemote source={doc.content} options={mdxOptions as any} components={components} />
-        </Prose>
-      </article>
+          <Prose>
+            <MDXRemote source={doc.content} options={mdxOptions} components={components} />
+          </Prose>
+        </article>
+
+        {doc.toc.length > 0 && (
+          <aside className="hidden w-56 shrink-0 xl:block">
+            <div className="sticky top-8">
+              <TOC items={doc.toc} />
+            </div>
+          </aside>
+        )}
+      </div>
     </div>
   );
 }
